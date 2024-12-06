@@ -1,5 +1,6 @@
 import yargs from "yargs";
 import {hideBin} from "yargs/helpers";
+import {getNotes, addNotes} from "./notes.js"
 
 const yargsConfig = yargs(hideBin(process.argv))
     .version("1.1.0")
@@ -19,8 +20,7 @@ const yargsConfig = yargs(hideBin(process.argv))
             }
         },
         handler: function (argv) {
-            console.log("Title : ", argv.title)
-            console.log("Body : " + argv.body)
+            addNotes(argv.title, argv.body)
         }
     })
     .command({
