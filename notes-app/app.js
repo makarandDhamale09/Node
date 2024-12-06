@@ -1,6 +1,6 @@
 import yargs from "yargs";
 import {hideBin} from "yargs/helpers";
-import {getNotes, addNotes} from "./notes.js"
+import {getNotes, addNotes, removeNote} from "./notes.js"
 
 const yargsConfig = yargs(hideBin(process.argv))
     .version("1.1.0")
@@ -26,8 +26,15 @@ const yargsConfig = yargs(hideBin(process.argv))
     .command({
         command: "remove",
         describe: "Removing a note!!",
-        handler: function () {
-            console.log("Removing a note!!")
+        builder: {
+            title: {
+                describe: "Note title",
+                demandOption: true,
+                type: "string"
+            }
+        },
+        handler: function (argv) {
+            removeNote(argv.title)
         }
     })
     .command({
