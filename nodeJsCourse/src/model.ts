@@ -8,7 +8,7 @@ export class User {
         private _job_title: string) {
     }
 
-    get getId(): number {
+    get id(): number {
         return this._id;
     }
 }
