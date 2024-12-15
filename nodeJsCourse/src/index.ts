@@ -1,9 +1,11 @@
-import express from 'express'
+import express from 'express';
 import usersData from './data/MOCK_DATA.json'
-import {User} from "./model";
+import {User} from "./model.js";
+import dotenv from "dotenv";
 
-
+dotenv.config()
 const app = express()
+
 
 const users: User[] = usersData.map((user: {
         id: number;
@@ -29,6 +31,7 @@ app.get("/users", (req, res) => {
 app.get("/users/:id", (req, res) => {
     const id: number = parseInt(req.params.id)
     const user: User | undefined = users.find((user) => user.getId === id);
+    console.log("User : ", user)
     if (!user) {
         throw new Error("User not found!!")
     }
@@ -36,5 +39,5 @@ app.get("/users/:id", (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-    console.log("Server Started!!")
+    console.log(`Server Started on PORT ${process.env.PORT}`)
 })
