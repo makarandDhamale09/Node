@@ -1,5 +1,5 @@
 import express from 'express'
-import users from "./MOCK_DATA.json" with {type: 'json'}
+import users from "./src/data/MOCK_DATA.json" with {type: 'json'}
 import dotenv from "dotenv";
 
 const app = express()
