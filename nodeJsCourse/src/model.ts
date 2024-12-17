@@ -5,8 +5,8 @@ export class User {
         private _last_name: string,
         private _gender: string,
         private _email: string,
-        private _job_title: string) {
-    }
+        private _job_title: string
+    ) {}
 
     get id(): number {
         return this._id;
