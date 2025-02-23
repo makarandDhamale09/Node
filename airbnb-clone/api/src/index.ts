@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
-import { RegisterRequest } from "./model";
+import mongoose from "mongoose";
+import "dotenv/config";
+import { User, UserModel } from "./model";
 
 const app = express();
 const PORT = 4000;
@@ -13,13 +15,17 @@ app.use(
   })
 );
 
+mongoose.connect(process.env.MONGO_URL as string);
+
 app.get("/test", (req, res) => {
   res.json("test ok");
 });
 
 app.post("/register", (req, res) => {
-  const request: RegisterRequest = req.body;
-  res.json(request);
+  const { name, email, password } = req.body;
+  const user = new User(name, email, password);
+  UserModel.create(user);
+  res.json(user);
 });
 
 app.listen(PORT, () => {
