@@ -6,4 +6,4 @@ use("Airbnb_DB");
 
 db.users.find();
 
-db.users.de;
+// db.users.deleteMany({});

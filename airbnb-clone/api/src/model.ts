@@ -1,7 +1,6 @@
-import mongoose, { Schema, Document } from "mongoose";
 import bcrypt from "bcrypt";
 
-export class User {
+export class UserModel {
   name: string;
   email: string;
   password: string;
@@ -18,11 +17,3 @@ export class User {
     return bcrypt.hashSync(plainPassword, salt); // Hash the password
   }
 }
-
-const UserSchema = new Schema({
-  name: { type: String, required: true },
-  email: { type: String, unique: true },
-  password: String,
-});
-
-export const UserModel = mongoose.model("User", UserSchema);
