@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import { encryptPassword } from "./utils";
 
 export class UserModel {
   name: string;
@@ -8,12 +8,13 @@ export class UserModel {
   constructor(name: string, email: string, password: string) {
     this.name = name;
     this.email = email;
-    this.password = this.encryptPassword(password);
+    this.password = encryptPassword(password);
   }
+}
 
-  private encryptPassword(plainPassword: string): string {
-    const saltRounds = 10;
-    const salt = bcrypt.genSaltSync(saltRounds); // Generate a salt
-    return bcrypt.hashSync(plainPassword, salt); // Hash the password
-  }
+export interface UserDocument extends Document {
+  _id: string;
+  name: string;
+  email: string;
+  password: string;
 }
