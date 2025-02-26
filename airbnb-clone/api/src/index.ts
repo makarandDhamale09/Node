@@ -35,7 +35,9 @@ app.post("/login", async (req: Request, res: Response) => {
 
     if (passOk) {
       const token = signJWT(userDetails);
-      res.cookie("token", token).json("Pass ok");
+      res
+        .cookie("token", token)
+        .json({ name: userDetails.name, email: userDetails.email });
     } else {
       res.status(422).json("Pass not ok");
     }
