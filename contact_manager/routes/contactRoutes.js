@@ -11,10 +11,8 @@ const router = express.Router();
 
 router.route("/").get(getContacts).post(createContact);
 
-router
-  .route("/:id")
-  .get(getContactById)
-  .put(updateContact)
-  .delete(deleteContact);
+router.route("/:id").put(updateContact);
+
+router.route("/:id").get(getContactById).delete(deleteContact);
 
 export default router;

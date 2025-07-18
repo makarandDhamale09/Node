@@ -1,0 +1,112 @@
+{
+    "info": {
+        "_postman_id": "eef3a735-92ea-41cc-8dfa-b0c2cb62f1a8",
+        "name": "Contacts Manager",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "GetContacts",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:5001/api/contacts",
+                    "path": [
+                        "api",
+                        "contacts"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5001"
+                }
+            }
+        },
+        {
+            "name": "CreateContact",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:5001/api/contacts",
+                    "path": [
+                        "api",
+                        "contacts"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5001"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"name\": \"Mak\",\n  \"email\": \"mak@gmail.com\",\n  \"phone\": \"1234567890\"\n}"
+                }
+            }
+        },
+        {
+            "name": "GetContactById",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:5001/api/contacts/687a12c5f8be2531b851c583",
+                    "path": [
+                        "api",
+                        "contacts",
+                        "687a12c5f8be2531b851c583"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5001"
+                }
+            }
+        },
+        {
+            "name": "UpdateContactById",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:5001/api/contacts/1",
+                    "path": [
+                        "api",
+                        "contacts",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5001"
+                }
+            }
+        },
+        {
+            "name": "DeleteById",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:5001/api/contacts/1",
+                    "path": [
+                        "api",
+                        "contacts",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5001"
+                }
+            }
+        }
+    ]
+}

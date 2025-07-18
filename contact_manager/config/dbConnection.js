@@ -9,6 +9,7 @@ export const connectDB = async () => {
     console.log(
       "MongoDB connected:",
       connection.connection.host,
+      connection.connection.port,
       connection.connection.name
     );
   } catch (error) {
